@@ -1,0 +1,25 @@
+Git & GitHub Commands
+
+(Step-1)
+-create folder in desktop
+-create repository in GitHub
+-repository URL copy
+-open CMD at desktop folder
+
+(Step-2)
+-git clone paste URL
+-cd repo name (confirm)
+
+(Step-3)
+-git add .
+-(git config --global "username") one time
+-(git config --global "email") one time
+-git add .
+-git commit -m "first-commit"
+-git push
+
+GitHub Daily use Commands
+-open folder type cmd and type (code .) then working 
+-git add .
+-git commit -m "first-web"
+-git push 
