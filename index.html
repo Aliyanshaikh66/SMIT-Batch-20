@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Pakistan Weather Calculator</title>
+</head>
+<body>
+    <h1>Weather Calculator (Pakistan)</h1>
+
+    <label>Temperature (°C):</label>
+    <input type="number" id="temp" placeholder="Enter temperature">
+    <br><br>
+
+    <label>Wind Speed (km/h):</label>
+    <input type="number" id="wind" placeholder="Enter wind speed">
+    <br><br>
+
+    <button onclick="calculateWeather()">Calculate</button>
+
+    <h2>Results:</h2>
+    <p id="results"></p>
+
+    <script>
+        // Wind Chill calculation
+        function windChill(tempC, windKmh) {
+            // sirf tab calculate karein jab temp <= 10°C aur wind > 4.8 km/h
+            if (tempC > 10 || windKmh < 4.8) return tempC;
+            return 13.12 + 0.6215 * tempC - 11.37 * Math.pow(windKmh, 0.16) + 0.3965 * tempC * Math.pow(windKmh, 0.16);
+        }
+
+        // Main function
+        function calculateWeather() {
+            let temp = parseFloat(document.getElementById('temp').value);
+            let wind = parseFloat(document.getElementById('wind').value);
+
+            let feelsLike = windChill(temp, wind);
+
+            let results = `
+                Temperature: ${temp.toFixed(1)}°C <br>
+                Feels Like (Wind Chill): ${feelsLike.toFixed(1)}°C
+            `;
+
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+</body>
+</html>
